@@ -1,0 +1,131 @@
+Language Grammar Specification
+
+Lexical Elements
+
+Keywords (Reserved Words):
+start | finish | loop | condition | declare | output | input | 
+function | return | break | continue | else
+
+Identifiers:
+IDENTIFIER := UPPER_LETTER (LOWER_LETTER | DIGIT | '_' | ' ')*
+              Maximum length: 31 characters
+              Examples: Count, Variable_name, "Variable with spaces"
+
+Literals:
+INTEGER_LITERAL    := [+-]? DIGIT+
+FLOAT_LITERAL      := [+-]? DIGIT+ '.' DIGIT{1,6} ([eE][+-]?DIGIT+)?
+STRING_LITERAL     := '"' (CHAR | ESCAPE_SEQUENCE)* '"'
+CHAR_LITERAL       := ''' (CHAR | ESCAPE_SEQUENCE) '''
+BOOLEAN_LITERAL    := 'true' | 'false'
+
+ESCAPE_SEQUENCE    := '\n' | '\t' | '\r' | '\\' | '\"' | '\''
+
+Operators:
+ARITHMETIC_OP      := '+' | '-' | '*' | '/' | '%' | '**'
+RELATIONAL_OP      := '==' | '!=' | '<' | '>' | '<=' | '>='
+LOGICAL_OP         := '&&' | '||' | '!'
+ASSIGNMENT_OP      := '=' | '+=' | '-=' | '*=' | '/='
+INCREMENT_OP       := '++'
+DECREMENT_OP       := '--'
+
+Punctuators:
+PUNCTUATOR := '(' | ')' | '{' | '}' | '[' | ']' | ',' | ';' | ':'
+
+Comments:
+SINGLE_LINE_COMMENT := '##' ANY_CHAR* NEWLINE
+MULTI_LINE_COMMENT  := '#*' ANY_CHAR* '*#'
+
+Grammar Productions
+
+Program Structure:
+program          := statement_list
+
+statement_list   := statement*
+
+statement        := declaration_stmt
+                  | assignment_stmt  
+                  | control_stmt
+                  | function_stmt
+                  | input_output_stmt
+
+Declarations:
+declaration_stmt := 'declare' IDENTIFIER '=' expression
+
+Assignments:
+assignment_stmt  := IDENTIFIER assignment_op expression
+                  | IDENTIFIER increment_op
+                  | IDENTIFIER decrement_op
+
+assignment_op    := '=' | '+=' | '-=' | '*=' | '/='
+
+Control Flow:
+control_stmt     := loop_stmt | condition_stmt | 'break' | 'continue'
+
+loop_stmt        := 'loop' 'condition' expression statement_list 'finish'
+
+condition_stmt   := 'condition' expression statement_list 
+                    ('else' statement_list)? 'finish'
+
+Functions:
+function_stmt    := function_decl | function_call | 'return' expression?
+
+function_decl    := 'function' IDENTIFIER '(' param_list? ')' ':' 
+                    statement_list 'finish'
+
+function_call    := IDENTIFIER '(' arg_list? ')'
+
+param_list       := IDENTIFIER (',' IDENTIFIER)*
+arg_list         := expression (',' expression)*
+
+Input/Output:
+input_output_stmt := 'input' IDENTIFIER
+                   | 'output' expression_list
+
+expression_list   := expression (';' expression)*
+
+Expressions:
+expression       := logical_or_expr
+
+logical_or_expr  := logical_and_expr ('||' logical_and_expr)*
+
+logical_and_expr := equality_expr ('&&' equality_expr)*
+
+equality_expr    := relational_expr (('==' | '!=') relational_expr)*
+
+relational_expr  := additive_expr (('<' | '>' | '<=' | '>=') additive_expr)*
+
+additive_expr    := multiplicative_expr (('+' | '-') multiplicative_expr)*
+
+multiplicative_expr := power_expr (('*' | '/' | '%') power_expr)*
+
+power_expr       := unary_expr ('**' unary_expr)*
+
+unary_expr       := ('!' | '+' | '-') unary_expr
+                  | primary_expr
+
+primary_expr     := IDENTIFIER
+                  | INTEGER_LITERAL
+                  | FLOAT_LITERAL  
+                  | STRING_LITERAL
+                  | CHAR_LITERAL
+                  | BOOLEAN_LITERAL
+                  | function_call
+                  | array_access
+                  | '(' expression ')'
+
+array_access     := IDENTIFIER '[' expression ']' ('[' expression ']')*
+
+Program Structure:
+Program begins with 'start' and ends with 'finish'
+Statements are terminated by newlines or semicolons
+Blocks are delimited by keywords and 'finish'
+Arrays and matrices use bracket notation: Array[10], Matrix[5][5]
+
+Language Features:
+- Case-sensitive identifiers starting with uppercase letters
+- Static scoping for variables and functions  
+- Strong typing with explicit declarations
+- Structured control flow with loops and conditions
+- Built-in I/O operations for input and output
+- Array support with multi-dimensional indexing
+- Mathematical expressions with standard operator precedence

@@ -1,0 +1,46 @@
+## test3.lang - String and Character Literals with Escape Sequences
+
+start
+    ## Basic strings
+    declare Empty = ""
+    declare Hello = "Hello World"
+    declare Digits = "12345"
+
+    ## String escape sequences
+    declare Newline str = "Line1\nLine2"
+    declare Tab str = "Col1\tCol2"
+    declare Return str = "Before\rAfter"
+    declare Backslash str = "Path\\to\\file"
+    declare Quote str = "She said \"hello\""
+    declare All escapes = "New\nTab\tReturn\rSlash\\Quote\""
+
+    ## Multiple escapes in one string
+    declare Multi = "Row1\tCol1\tCol2\nRow2\tCol3\tCol4"
+    declare Path = "C:\\Users\\Documents\\file.txt"
+    declare Dialog = "He said \"Hi\" and she said \"Bye\""
+
+    ## Character literals
+    declare Ch a = 'A'
+    declare Ch z = 'z'
+    declare Ch zero = '0'
+    declare Ch space = ' '
+
+    ## Character escape sequences
+    declare Ch newline = '\n'
+    declare Ch tab = '\t'
+    declare Ch return = '\r'
+    declare Ch backslash = '\\'
+    declare Ch quote = '\''
+
+    ## Strings used in expressions
+    condition Hello == "Hello World"
+        output "Match found\n"
+    finish
+
+    output "Result:\t"
+    output Hello
+    output "\nDone\n"
+
+    ## String with only escapes
+    declare Only escapes = "\n\t\r\\\""
+finish

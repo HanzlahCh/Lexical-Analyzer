@@ -1,0 +1,34 @@
+## test4.lang - Lexical Errors
+## Each section triggers a specific scanner error
+
+## Valid code before errors
+start
+declare Count = 5
+
+## Error: Invalid characters
+declare Val = 10 @ 5
+declare X = 3 $ 2
+declare Y = 7 ~ 1
+
+## Error: Unterminated string literal
+declare Bad str = "This string never ends
+
+## Error: Unterminated character literal
+declare Bad ch = '
+
+## Error: Multi-character in char literal
+declare Wrong ch = 'ab'
+
+## Error: Identifier starting with lowercase
+declare invalid_name = 10
+
+## Error: Identifier exceeding 31 characters
+declare This is a very very very very long identifier name = 100
+
+## Error: Unterminated multi-line comment
+#* This comment has no closing
+
+## More valid code after errors
+declare Valid = 42
+output Valid
+finish

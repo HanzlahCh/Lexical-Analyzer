@@ -1,0 +1,70 @@
+## test2.lang - Complex Expressions
+## Nested operations, mixed operators, precedence testing
+
+start
+    ## Arithmetic precedence
+    declare Result = 2 + 3 * 4
+    declare Nested = (2 + 3) * (4 - 1)
+    declare Power expr = 2 ** 3 ** 2
+    declare Mixed = 10 % 3 + 2 ** 4 - 1
+
+    ## Compound assignments in sequence
+    Result += 10
+    Result -= 3
+    Result *= 2
+    Result /= 4
+    Result++
+    Result--
+
+    ## Deeply nested conditions with logical operators
+    condition Result > 0 && Result < 100 || Result == 0
+        condition !false && true
+            output "Nested condition"
+        finish
+    finish
+
+    ## Chained relational comparisons
+    declare A = 10
+    declare B = 20
+    declare C = 30
+    condition A < B && B < C && A != C
+        output "Chained"
+    finish
+    condition A <= B && B >= A && C > A
+        output "Mixed relational"
+    finish
+
+    ## Loop with complex condition and expressions
+    declare Index = 0
+    loop condition Index < 10 && !false
+        declare Temp = Index * 2 + 1
+        declare Square = Index ** 2
+        condition Temp % 2 == 0
+            output Temp
+        else
+            condition Square > 50
+                break
+            finish
+        finish
+        Index++
+    finish
+
+    ## Function with expression arguments
+    function Calculate(X, Y):
+        declare Sum = X + Y
+        declare Diff = X - Y
+        declare Product = X * Y
+        return Sum + Diff * Product
+    finish
+
+    ## Nested function calls and array indexing
+    declare Data[100]
+    declare Matrix[10][10]
+    declare Val = Data[A + B]
+    declare Cell = Matrix[A * 2][B / 4]
+
+    ## Expression as output
+    output A + B * C - 1
+    output (A + B) * (C - A)
+    output {A; B; C}
+finish

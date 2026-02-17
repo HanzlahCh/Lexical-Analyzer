@@ -1,0 +1,43 @@
+## test5.lang - Comments
+## Tests single-line and multi-line comment handling
+
+## Single-line comments
+start
+    ## This is a basic single-line comment
+    declare Count = 0  ## Inline comment after code
+
+    ## Comment with symbols: @#$%^&*!
+    ## Comment with numbers: 12345 3.14
+    ## Comment with keywords: start finish loop declare
+
+    ##
+    ## Empty comment above
+
+    #* Simple multi-line comment *#
+
+    #* Multi-line comment
+       spanning two lines *#
+
+    #* Multi-line comment
+       spanning
+       multiple
+       lines *#
+
+    #* Comment with code inside:
+       declare X = 10
+       loop condition X > 0
+           X--
+       finish
+    *#
+
+    #* Nested symbols in comment: { } [ ] ( ) ; : , *#
+
+    declare Result = 42  #* inline multi-line comment *#  + 8
+
+    ## Code between comments
+    output Count
+    ## Another comment
+    output Result
+    ## Final comment
+finish
+## Trailing comment after program
