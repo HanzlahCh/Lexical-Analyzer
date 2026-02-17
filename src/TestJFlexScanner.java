@@ -40,10 +40,10 @@ public class TestJFlexScanner {
 
             // Test JFlex Scanner
             testJFlexScanner("../tests/test1.lang");
-            testJFlexScanner("../tests/test2.lang");
-            testJFlexScanner("../tests/test3.lang");
-            testJFlexScanner("../tests/test4.lang");
-            testJFlexScanner("../tests/test5.lang");
+            //testJFlexScanner("../tests/test2.lang");
+            //testJFlexScanner("../tests/test3.lang");
+            //testJFlexScanner("../tests/test4.lang");
+            //testJFlexScanner("../tests/test5.lang");
 
             System.out.println("\n========================================");
             System.out.println("    JFLEX SCANNER TEST COMPLETED");

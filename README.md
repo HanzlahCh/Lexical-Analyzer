@@ -362,11 +362,8 @@ javac *.java
 ---
 
 ## Team Members
-
-|        Name        | Roll Number |
-|--------------------|-------------|
-| Hanzlah Mehmood Ch |   22I-0001  |
-| Zain Imran         |   22I-0002  |
+  - [Hanzlah Ch](https://github.com/hanzlahch)
+  - [Zain Imran](https://github.com/MZI5239)
 
 ---
 
