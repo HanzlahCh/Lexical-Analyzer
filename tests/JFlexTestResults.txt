@@ -1,0 +1,1194 @@
+========================================
+    JFLEX SCANNER TEST
+========================================
+
+========== JFLEX INPUT FROM: ../tests/test1.lang ==========
+## test1.lang - All Valid Tokens
+## Demonstrates every token type recognized by the scanner
+
+## Keywords (all 12)
+start
+    declare Count = 0
+    declare Flag = true
+
+    loop condition Count < 10
+        Count++
+        condition Count == 5
+            break
+        else
+            continue
+        finish
+    finish
+
+    function Add(Param1, Param2):
+        return Param1 + Param2
+    finish
+
+    input Name
+    output "Done"
+finish
+
+## Identifiers
+declare Simple = 1
+declare With_underscore = 2
+declare Variable with spaces = 3
+
+## Integer literals
+declare Pos = 42
+declare Neg = -7
+declare Zero = 0
+
+## Float literals
+declare Pi = 3.14
+declare Small = 0.000001
+declare Sci1 = 1.5e10
+declare Sci2 = 2.0E-3
+
+## String literal
+declare Greeting = "Hello World"
+
+## Character literal
+declare Letter = 'A'
+
+## Boolean literals
+declare Yes = true
+declare No = false
+
+## Arithmetic operators: + - * / % **
+declare Sum = 10 + 20 - 5 * 2 / 1 % 3
+declare Power = 2 ** 8
+
+## Relational operators: == != < > <= >=
+condition Sum == 25
+finish
+condition Sum != 0
+finish
+condition Sum < 100
+finish
+condition Sum > 0
+finish
+condition Sum <= 50
+finish
+condition Sum >= 10
+finish
+
+## Logical operators: && || !
+condition Sum > 0 && Flag
+finish
+condition Sum > 100 || Flag
+finish
+condition !Flag
+finish
+
+## Assignment operators: = += -= *= /=
+Sum = 0
+Sum += 10
+Sum -= 2
+Sum *= 3
+Sum /= 4
+
+## Increment/Decrement: ++ --
+Sum++
+Sum--
+
+## Punctuators: ( ) { } [ ] , ; :
+declare Arr[10]
+declare Mat[5][5]
+output {Sum; Pi}
+
+## Single-line comment
+## Multi-line comment
+#* This is a
+   multi-line comment *#
+
+======================================================
+
+
+========== TOKENS ==========
+<KEYWORD, "start", Line: 5, Col: 1>
+<KEYWORD, "declare", Line: 6, Col: 5>
+<IDENTIFIER, "Count", Line: 6, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 6, Col: 19>
+<INTEGER_LITERAL, "0", Line: 6, Col: 21>
+<KEYWORD, "declare", Line: 7, Col: 5>
+<IDENTIFIER, "Flag", Line: 7, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 7, Col: 18>
+<BOOLEAN_LITERAL, "true", Line: 7, Col: 20>
+<KEYWORD, "loop", Line: 9, Col: 5>
+<KEYWORD, "condition", Line: 9, Col: 10>
+<IDENTIFIER, "Count", Line: 9, Col: 20>
+<RELATIONAL_OP, "<", Line: 9, Col: 26>
+<INTEGER_LITERAL, "10", Line: 9, Col: 28>
+<IDENTIFIER, "Count", Line: 10, Col: 9>
+<INCREMENT_OP, "++", Line: 10, Col: 14>
+<KEYWORD, "condition", Line: 11, Col: 9>
+<IDENTIFIER, "Count", Line: 11, Col: 19>
+<RELATIONAL_OP, "==", Line: 11, Col: 25>
+<INTEGER_LITERAL, "5", Line: 11, Col: 28>
+<KEYWORD, "break", Line: 12, Col: 13>
+<KEYWORD, "else", Line: 13, Col: 9>
+<KEYWORD, "continue", Line: 14, Col: 13>
+<KEYWORD, "finish", Line: 15, Col: 9>
+<KEYWORD, "finish", Line: 16, Col: 5>
+<KEYWORD, "function", Line: 18, Col: 5>
+<IDENTIFIER, "Add", Line: 18, Col: 14>
+<PUNCTUATOR, "(", Line: 18, Col: 17>
+<IDENTIFIER, "Param1", Line: 18, Col: 18>
+<PUNCTUATOR, ",", Line: 18, Col: 24>
+<IDENTIFIER, "Param2", Line: 18, Col: 26>
+<PUNCTUATOR, ")", Line: 18, Col: 32>
+<PUNCTUATOR, ":", Line: 18, Col: 33>
+<KEYWORD, "return", Line: 19, Col: 9>
+<IDENTIFIER, "Param1", Line: 19, Col: 16>
+<ARITHMETIC_OP, "+", Line: 19, Col: 23>
+<IDENTIFIER, "Param2", Line: 19, Col: 25>
+<KEYWORD, "finish", Line: 20, Col: 5>
+<KEYWORD, "input", Line: 22, Col: 5>
+<IDENTIFIER, "Name", Line: 22, Col: 11>
+<KEYWORD, "output", Line: 23, Col: 5>
+<STRING_LITERAL, ""Done"", Line: 23, Col: 12>
+<KEYWORD, "finish", Line: 24, Col: 1>
+<KEYWORD, "declare", Line: 27, Col: 1>
+<IDENTIFIER, "Simple", Line: 27, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 27, Col: 16>
+<INTEGER_LITERAL, "1", Line: 27, Col: 18>
+<KEYWORD, "declare", Line: 28, Col: 1>
+<IDENTIFIER, "With_underscore", Line: 28, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 28, Col: 25>
+<INTEGER_LITERAL, "2", Line: 28, Col: 27>
+<KEYWORD, "declare", Line: 29, Col: 1>
+<IDENTIFIER, "Variable with spaces", Line: 29, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 29, Col: 30>
+<INTEGER_LITERAL, "3", Line: 29, Col: 32>
+<KEYWORD, "declare", Line: 32, Col: 1>
+<IDENTIFIER, "Pos", Line: 32, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 32, Col: 13>
+<INTEGER_LITERAL, "42", Line: 32, Col: 15>
+<KEYWORD, "declare", Line: 33, Col: 1>
+<IDENTIFIER, "Neg", Line: 33, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 33, Col: 13>
+<ARITHMETIC_OP, "-", Line: 33, Col: 15>
+<INTEGER_LITERAL, "7", Line: 33, Col: 16>
+<KEYWORD, "declare", Line: 34, Col: 1>
+<IDENTIFIER, "Zero", Line: 34, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 34, Col: 14>
+<INTEGER_LITERAL, "0", Line: 34, Col: 16>
+<KEYWORD, "declare", Line: 37, Col: 1>
+<IDENTIFIER, "Pi", Line: 37, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 37, Col: 12>
+<FLOAT_LITERAL, "3.14", Line: 37, Col: 14>
+<KEYWORD, "declare", Line: 38, Col: 1>
+<IDENTIFIER, "Small", Line: 38, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 38, Col: 15>
+<FLOAT_LITERAL, "0.000001", Line: 38, Col: 17>
+<KEYWORD, "declare", Line: 39, Col: 1>
+<IDENTIFIER, "Sci1", Line: 39, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 39, Col: 14>
+<FLOAT_LITERAL, "1.5e10", Line: 39, Col: 16>
+<KEYWORD, "declare", Line: 40, Col: 1>
+<IDENTIFIER, "Sci2", Line: 40, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 40, Col: 14>
+<FLOAT_LITERAL, "2.0E-3", Line: 40, Col: 16>
+<KEYWORD, "declare", Line: 43, Col: 1>
+<IDENTIFIER, "Greeting", Line: 43, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 43, Col: 18>
+<STRING_LITERAL, ""Hello World"", Line: 43, Col: 20>
+<KEYWORD, "declare", Line: 46, Col: 1>
+<IDENTIFIER, "Letter", Line: 46, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 46, Col: 16>
+<CHAR_LITERAL, "'A'", Line: 46, Col: 18>
+<KEYWORD, "declare", Line: 49, Col: 1>
+<IDENTIFIER, "Yes", Line: 49, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 49, Col: 13>
+<BOOLEAN_LITERAL, "true", Line: 49, Col: 15>
+<KEYWORD, "declare", Line: 50, Col: 1>
+<IDENTIFIER, "No", Line: 50, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 50, Col: 12>
+<BOOLEAN_LITERAL, "false", Line: 50, Col: 14>
+<KEYWORD, "declare", Line: 53, Col: 1>
+<IDENTIFIER, "Sum", Line: 53, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 53, Col: 13>
+<INTEGER_LITERAL, "10", Line: 53, Col: 15>
+<ARITHMETIC_OP, "+", Line: 53, Col: 18>
+<INTEGER_LITERAL, "20", Line: 53, Col: 20>
+<ARITHMETIC_OP, "-", Line: 53, Col: 23>
+<INTEGER_LITERAL, "5", Line: 53, Col: 25>
+<ARITHMETIC_OP, "*", Line: 53, Col: 27>
+<INTEGER_LITERAL, "2", Line: 53, Col: 29>
+<ARITHMETIC_OP, "/", Line: 53, Col: 31>
+<INTEGER_LITERAL, "1", Line: 53, Col: 33>
+<ARITHMETIC_OP, "%", Line: 53, Col: 35>
+<INTEGER_LITERAL, "3", Line: 53, Col: 37>
+<KEYWORD, "declare", Line: 54, Col: 1>
+<IDENTIFIER, "Power", Line: 54, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 54, Col: 15>
+<INTEGER_LITERAL, "2", Line: 54, Col: 17>
+<ARITHMETIC_OP, "**", Line: 54, Col: 19>
+<INTEGER_LITERAL, "8", Line: 54, Col: 22>
+<KEYWORD, "condition", Line: 57, Col: 1>
+<IDENTIFIER, "Sum", Line: 57, Col: 11>
+<RELATIONAL_OP, "==", Line: 57, Col: 15>
+<INTEGER_LITERAL, "25", Line: 57, Col: 18>
+<KEYWORD, "finish", Line: 58, Col: 1>
+<KEYWORD, "condition", Line: 59, Col: 1>
+<IDENTIFIER, "Sum", Line: 59, Col: 11>
+<RELATIONAL_OP, "!=", Line: 59, Col: 15>
+<INTEGER_LITERAL, "0", Line: 59, Col: 18>
+<KEYWORD, "finish", Line: 60, Col: 1>
+<KEYWORD, "condition", Line: 61, Col: 1>
+<IDENTIFIER, "Sum", Line: 61, Col: 11>
+<RELATIONAL_OP, "<", Line: 61, Col: 15>
+<INTEGER_LITERAL, "100", Line: 61, Col: 17>
+<KEYWORD, "finish", Line: 62, Col: 1>
+<KEYWORD, "condition", Line: 63, Col: 1>
+<IDENTIFIER, "Sum", Line: 63, Col: 11>
+<RELATIONAL_OP, ">", Line: 63, Col: 15>
+<INTEGER_LITERAL, "0", Line: 63, Col: 17>
+<KEYWORD, "finish", Line: 64, Col: 1>
+<KEYWORD, "condition", Line: 65, Col: 1>
+<IDENTIFIER, "Sum", Line: 65, Col: 11>
+<RELATIONAL_OP, "<=", Line: 65, Col: 15>
+<INTEGER_LITERAL, "50", Line: 65, Col: 18>
+<KEYWORD, "finish", Line: 66, Col: 1>
+<KEYWORD, "condition", Line: 67, Col: 1>
+<IDENTIFIER, "Sum", Line: 67, Col: 11>
+<RELATIONAL_OP, ">=", Line: 67, Col: 15>
+<INTEGER_LITERAL, "10", Line: 67, Col: 18>
+<KEYWORD, "finish", Line: 68, Col: 1>
+<KEYWORD, "condition", Line: 71, Col: 1>
+<IDENTIFIER, "Sum", Line: 71, Col: 11>
+<RELATIONAL_OP, ">", Line: 71, Col: 15>
+<INTEGER_LITERAL, "0", Line: 71, Col: 17>
+<LOGICAL_OP, "&&", Line: 71, Col: 19>
+<IDENTIFIER, "Flag", Line: 71, Col: 22>
+<KEYWORD, "finish", Line: 72, Col: 1>
+<KEYWORD, "condition", Line: 73, Col: 1>
+<IDENTIFIER, "Sum", Line: 73, Col: 11>
+<RELATIONAL_OP, ">", Line: 73, Col: 15>
+<INTEGER_LITERAL, "100", Line: 73, Col: 17>
+<LOGICAL_OP, "||", Line: 73, Col: 21>
+<IDENTIFIER, "Flag", Line: 73, Col: 24>
+<KEYWORD, "finish", Line: 74, Col: 1>
+<KEYWORD, "condition", Line: 75, Col: 1>
+<LOGICAL_OP, "!", Line: 75, Col: 11>
+<IDENTIFIER, "Flag", Line: 75, Col: 12>
+<KEYWORD, "finish", Line: 76, Col: 1>
+<IDENTIFIER, "Sum", Line: 79, Col: 1>
+<ASSIGNMENT_OP, "=", Line: 79, Col: 5>
+<INTEGER_LITERAL, "0", Line: 79, Col: 7>
+<IDENTIFIER, "Sum", Line: 80, Col: 1>
+<ASSIGNMENT_OP, "+=", Line: 80, Col: 5>
+<INTEGER_LITERAL, "10", Line: 80, Col: 8>
+<IDENTIFIER, "Sum", Line: 81, Col: 1>
+<ASSIGNMENT_OP, "-=", Line: 81, Col: 5>
+<INTEGER_LITERAL, "2", Line: 81, Col: 8>
+<IDENTIFIER, "Sum", Line: 82, Col: 1>
+<ASSIGNMENT_OP, "*=", Line: 82, Col: 5>
+<INTEGER_LITERAL, "3", Line: 82, Col: 8>
+<IDENTIFIER, "Sum", Line: 83, Col: 1>
+<ASSIGNMENT_OP, "/=", Line: 83, Col: 5>
+<INTEGER_LITERAL, "4", Line: 83, Col: 8>
+<IDENTIFIER, "Sum", Line: 86, Col: 1>
+<INCREMENT_OP, "++", Line: 86, Col: 4>
+<IDENTIFIER, "Sum", Line: 87, Col: 1>
+<DECREMENT_OP, "--", Line: 87, Col: 4>
+<KEYWORD, "declare", Line: 90, Col: 1>
+<IDENTIFIER, "Arr", Line: 90, Col: 9>
+<PUNCTUATOR, "[", Line: 90, Col: 12>
+<INTEGER_LITERAL, "10", Line: 90, Col: 13>
+<PUNCTUATOR, "]", Line: 90, Col: 15>
+<KEYWORD, "declare", Line: 91, Col: 1>
+<IDENTIFIER, "Mat", Line: 91, Col: 9>
+<PUNCTUATOR, "[", Line: 91, Col: 12>
+<INTEGER_LITERAL, "5", Line: 91, Col: 13>
+<PUNCTUATOR, "]", Line: 91, Col: 14>
+<PUNCTUATOR, "[", Line: 91, Col: 15>
+<INTEGER_LITERAL, "5", Line: 91, Col: 16>
+<PUNCTUATOR, "]", Line: 91, Col: 17>
+<KEYWORD, "output", Line: 92, Col: 1>
+<PUNCTUATOR, "{", Line: 92, Col: 8>
+<IDENTIFIER, "Sum", Line: 92, Col: 9>
+<PUNCTUATOR, ";", Line: 92, Col: 12>
+<IDENTIFIER, "Pi", Line: 92, Col: 14>
+<PUNCTUATOR, "}", Line: 92, Col: 16>
+============================
+
+
+========== STATISTICS ==========
+Total Tokens: 206
+Lines Processed: 98
+Comments Removed: 18
+Errors Detected: 0
+
+Token Count by Type:
+----------------------------------------
+ARITHMETIC_OP            : 8
+ASSIGNMENT_OP            : 23
+BOOLEAN_LITERAL          : 3
+CHAR_LITERAL             : 1
+DECREMENT_OP             : 1
+FLOAT_LITERAL            : 4
+IDENTIFIER               : 49
+INCREMENT_OP             : 2
+INTEGER_LITERAL          : 33
+KEYWORD                  : 54
+LOGICAL_OP               : 3
+PUNCTUATOR               : 13
+RELATIONAL_OP            : 10
+STRING_LITERAL           : 2
+========================================
+
+========== SYMBOL TABLE ==========
+Name                 Type            First Line First Col  Frequency
+================================================================================
+Count                IDENTIFIER      Line: 6    Col: 13   Frequency: 4
+Flag                 IDENTIFIER      Line: 7    Col: 13   Frequency: 4
+Add                  IDENTIFIER      Line: 18   Col: 14   Frequency: 1
+Param1               IDENTIFIER      Line: 18   Col: 18   Frequency: 2
+Param2               IDENTIFIER      Line: 18   Col: 26   Frequency: 2
+Name                 IDENTIFIER      Line: 22   Col: 11   Frequency: 1
+Simple               IDENTIFIER      Line: 27   Col: 9    Frequency: 1
+With_underscore      IDENTIFIER      Line: 28   Col: 9    Frequency: 1
+Variable with spaces IDENTIFIER      Line: 29   Col: 9    Frequency: 1
+Pos                  IDENTIFIER      Line: 32   Col: 9    Frequency: 1
+Neg                  IDENTIFIER      Line: 33   Col: 9    Frequency: 1
+Zero                 IDENTIFIER      Line: 34   Col: 9    Frequency: 1
+Pi                   IDENTIFIER      Line: 37   Col: 9    Frequency: 2
+Small                IDENTIFIER      Line: 38   Col: 9    Frequency: 1
+Sci1                 IDENTIFIER      Line: 39   Col: 9    Frequency: 1
+Sci2                 IDENTIFIER      Line: 40   Col: 9    Frequency: 1
+Greeting             IDENTIFIER      Line: 43   Col: 9    Frequency: 1
+Letter               IDENTIFIER      Line: 46   Col: 9    Frequency: 1
+Yes                  IDENTIFIER      Line: 49   Col: 9    Frequency: 1
+No                   IDENTIFIER      Line: 50   Col: 9    Frequency: 1
+Sum                  IDENTIFIER      Line: 53   Col: 9    Frequency: 17
+Power                IDENTIFIER      Line: 54   Col: 9    Frequency: 1
+Arr                  IDENTIFIER      Line: 90   Col: 9    Frequency: 1
+Mat                  IDENTIFIER      Line: 91   Col: 9    Frequency: 1
+================================================================================
+Total unique identifiers: 24
+
+========== TEST COMPLETED ==========
+========== JFLEX INPUT FROM: ../tests/test2.lang ==========
+## test2.lang - Complex Expressions
+## Nested operations, mixed operators, precedence testing
+
+start
+    ## Arithmetic precedence
+    declare Result = 2 + 3 * 4
+    declare Nested = (2 + 3) * (4 - 1)
+    declare Power expr = 2 ** 3 ** 2
+    declare Mixed = 10 % 3 + 2 ** 4 - 1
+
+    ## Compound assignments in sequence
+    Result += 10
+    Result -= 3
+    Result *= 2
+    Result /= 4
+    Result++
+    Result--
+
+    ## Deeply nested conditions with logical operators
+    condition Result > 0 && Result < 100 || Result == 0
+        condition !false && true
+            output "Nested condition"
+        finish
+    finish
+
+    ## Chained relational comparisons
+    declare A = 10
+    declare B = 20
+    declare C = 30
+    condition A < B && B < C && A != C
+        output "Chained"
+    finish
+    condition A <= B && B >= A && C > A
+        output "Mixed relational"
+    finish
+
+    ## Loop with complex condition and expressions
+    declare Index = 0
+    loop condition Index < 10 && !false
+        declare Temp = Index * 2 + 1
+        declare Square = Index ** 2
+        condition Temp % 2 == 0
+            output Temp
+        else
+            condition Square > 50
+                break
+            finish
+        finish
+        Index++
+    finish
+
+    ## Function with expression arguments
+    function Calculate(X, Y):
+        declare Sum = X + Y
+        declare Diff = X - Y
+        declare Product = X * Y
+        return Sum + Diff * Product
+    finish
+
+    ## Nested function calls and array indexing
+    declare Data[100]
+    declare Matrix[10][10]
+    declare Val = Data[A + B]
+    declare Cell = Matrix[A * 2][B / 4]
+
+    ## Expression as output
+    output A + B * C - 1
+    output (A + B) * (C - A)
+    output {A; B; C}
+finish
+
+======================================================
+
+
+========== TOKENS ==========
+<KEYWORD, "start", Line: 4, Col: 1>
+<KEYWORD, "declare", Line: 6, Col: 5>
+<IDENTIFIER, "Result", Line: 6, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 6, Col: 20>
+<INTEGER_LITERAL, "2", Line: 6, Col: 22>
+<ARITHMETIC_OP, "+", Line: 6, Col: 24>
+<INTEGER_LITERAL, "3", Line: 6, Col: 26>
+<ARITHMETIC_OP, "*", Line: 6, Col: 28>
+<INTEGER_LITERAL, "4", Line: 6, Col: 30>
+<KEYWORD, "declare", Line: 7, Col: 5>
+<IDENTIFIER, "Nested", Line: 7, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 7, Col: 20>
+<PUNCTUATOR, "(", Line: 7, Col: 22>
+<INTEGER_LITERAL, "2", Line: 7, Col: 23>
+<ARITHMETIC_OP, "+", Line: 7, Col: 25>
+<INTEGER_LITERAL, "3", Line: 7, Col: 27>
+<PUNCTUATOR, ")", Line: 7, Col: 28>
+<ARITHMETIC_OP, "*", Line: 7, Col: 30>
+<PUNCTUATOR, "(", Line: 7, Col: 32>
+<INTEGER_LITERAL, "4", Line: 7, Col: 33>
+<ARITHMETIC_OP, "-", Line: 7, Col: 35>
+<INTEGER_LITERAL, "1", Line: 7, Col: 37>
+<PUNCTUATOR, ")", Line: 7, Col: 38>
+<KEYWORD, "declare", Line: 8, Col: 5>
+<IDENTIFIER, "Power expr", Line: 8, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 8, Col: 24>
+<INTEGER_LITERAL, "2", Line: 8, Col: 26>
+<ARITHMETIC_OP, "**", Line: 8, Col: 28>
+<INTEGER_LITERAL, "3", Line: 8, Col: 31>
+<ARITHMETIC_OP, "**", Line: 8, Col: 33>
+<INTEGER_LITERAL, "2", Line: 8, Col: 36>
+<KEYWORD, "declare", Line: 9, Col: 5>
+<IDENTIFIER, "Mixed", Line: 9, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 9, Col: 19>
+<INTEGER_LITERAL, "10", Line: 9, Col: 21>
+<ARITHMETIC_OP, "%", Line: 9, Col: 24>
+<INTEGER_LITERAL, "3", Line: 9, Col: 26>
+<ARITHMETIC_OP, "+", Line: 9, Col: 28>
+<INTEGER_LITERAL, "2", Line: 9, Col: 30>
+<ARITHMETIC_OP, "**", Line: 9, Col: 32>
+<INTEGER_LITERAL, "4", Line: 9, Col: 35>
+<ARITHMETIC_OP, "-", Line: 9, Col: 37>
+<INTEGER_LITERAL, "1", Line: 9, Col: 39>
+<IDENTIFIER, "Result", Line: 12, Col: 5>
+<ASSIGNMENT_OP, "+=", Line: 12, Col: 12>
+<INTEGER_LITERAL, "10", Line: 12, Col: 15>
+<IDENTIFIER, "Result", Line: 13, Col: 5>
+<ASSIGNMENT_OP, "-=", Line: 13, Col: 12>
+<INTEGER_LITERAL, "3", Line: 13, Col: 15>
+<IDENTIFIER, "Result", Line: 14, Col: 5>
+<ASSIGNMENT_OP, "*=", Line: 14, Col: 12>
+<INTEGER_LITERAL, "2", Line: 14, Col: 15>
+<IDENTIFIER, "Result", Line: 15, Col: 5>
+<ASSIGNMENT_OP, "/=", Line: 15, Col: 12>
+<INTEGER_LITERAL, "4", Line: 15, Col: 15>
+<IDENTIFIER, "Result", Line: 16, Col: 5>
+<INCREMENT_OP, "++", Line: 16, Col: 11>
+<IDENTIFIER, "Result", Line: 17, Col: 5>
+<DECREMENT_OP, "--", Line: 17, Col: 11>
+<KEYWORD, "condition", Line: 20, Col: 5>
+<IDENTIFIER, "Result", Line: 20, Col: 15>
+<RELATIONAL_OP, ">", Line: 20, Col: 22>
+<INTEGER_LITERAL, "0", Line: 20, Col: 24>
+<LOGICAL_OP, "&&", Line: 20, Col: 26>
+<IDENTIFIER, "Result", Line: 20, Col: 29>
+<RELATIONAL_OP, "<", Line: 20, Col: 36>
+<INTEGER_LITERAL, "100", Line: 20, Col: 38>
+<LOGICAL_OP, "||", Line: 20, Col: 42>
+<IDENTIFIER, "Result", Line: 20, Col: 45>
+<RELATIONAL_OP, "==", Line: 20, Col: 52>
+<INTEGER_LITERAL, "0", Line: 20, Col: 55>
+<KEYWORD, "condition", Line: 21, Col: 9>
+<LOGICAL_OP, "!", Line: 21, Col: 19>
+<BOOLEAN_LITERAL, "false", Line: 21, Col: 20>
+<LOGICAL_OP, "&&", Line: 21, Col: 26>
+<BOOLEAN_LITERAL, "true", Line: 21, Col: 29>
+<KEYWORD, "output", Line: 22, Col: 13>
+<STRING_LITERAL, ""Nested condition"", Line: 22, Col: 20>
+<KEYWORD, "finish", Line: 23, Col: 9>
+<KEYWORD, "finish", Line: 24, Col: 5>
+<KEYWORD, "declare", Line: 27, Col: 5>
+<IDENTIFIER, "A", Line: 27, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 27, Col: 15>
+<INTEGER_LITERAL, "10", Line: 27, Col: 17>
+<KEYWORD, "declare", Line: 28, Col: 5>
+<IDENTIFIER, "B", Line: 28, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 28, Col: 15>
+<INTEGER_LITERAL, "20", Line: 28, Col: 17>
+<KEYWORD, "declare", Line: 29, Col: 5>
+<IDENTIFIER, "C", Line: 29, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 29, Col: 15>
+<INTEGER_LITERAL, "30", Line: 29, Col: 17>
+<KEYWORD, "condition", Line: 30, Col: 5>
+<IDENTIFIER, "A", Line: 30, Col: 15>
+<RELATIONAL_OP, "<", Line: 30, Col: 17>
+<IDENTIFIER, "B", Line: 30, Col: 19>
+<LOGICAL_OP, "&&", Line: 30, Col: 21>
+<IDENTIFIER, "B", Line: 30, Col: 24>
+<RELATIONAL_OP, "<", Line: 30, Col: 26>
+<IDENTIFIER, "C", Line: 30, Col: 28>
+<LOGICAL_OP, "&&", Line: 30, Col: 30>
+<IDENTIFIER, "A", Line: 30, Col: 33>
+<RELATIONAL_OP, "!=", Line: 30, Col: 35>
+<IDENTIFIER, "C", Line: 30, Col: 38>
+<KEYWORD, "output", Line: 31, Col: 9>
+<STRING_LITERAL, ""Chained"", Line: 31, Col: 16>
+<KEYWORD, "finish", Line: 32, Col: 5>
+<KEYWORD, "condition", Line: 33, Col: 5>
+<IDENTIFIER, "A", Line: 33, Col: 15>
+<RELATIONAL_OP, "<=", Line: 33, Col: 17>
+<IDENTIFIER, "B", Line: 33, Col: 20>
+<LOGICAL_OP, "&&", Line: 33, Col: 22>
+<IDENTIFIER, "B", Line: 33, Col: 25>
+<RELATIONAL_OP, ">=", Line: 33, Col: 27>
+<IDENTIFIER, "A", Line: 33, Col: 30>
+<LOGICAL_OP, "&&", Line: 33, Col: 32>
+<IDENTIFIER, "C", Line: 33, Col: 35>
+<RELATIONAL_OP, ">", Line: 33, Col: 37>
+<IDENTIFIER, "A", Line: 33, Col: 39>
+<KEYWORD, "output", Line: 34, Col: 9>
+<STRING_LITERAL, ""Mixed relational"", Line: 34, Col: 16>
+<KEYWORD, "finish", Line: 35, Col: 5>
+<KEYWORD, "declare", Line: 38, Col: 5>
+<IDENTIFIER, "Index", Line: 38, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 38, Col: 19>
+<INTEGER_LITERAL, "0", Line: 38, Col: 21>
+<KEYWORD, "loop", Line: 39, Col: 5>
+<KEYWORD, "condition", Line: 39, Col: 10>
+<IDENTIFIER, "Index", Line: 39, Col: 20>
+<RELATIONAL_OP, "<", Line: 39, Col: 26>
+<INTEGER_LITERAL, "10", Line: 39, Col: 28>
+<LOGICAL_OP, "&&", Line: 39, Col: 31>
+<LOGICAL_OP, "!", Line: 39, Col: 34>
+<BOOLEAN_LITERAL, "false", Line: 39, Col: 35>
+<KEYWORD, "declare", Line: 40, Col: 9>
+<IDENTIFIER, "Temp", Line: 40, Col: 17>
+<ASSIGNMENT_OP, "=", Line: 40, Col: 22>
+<IDENTIFIER, "Index", Line: 40, Col: 24>
+<ARITHMETIC_OP, "*", Line: 40, Col: 30>
+<INTEGER_LITERAL, "2", Line: 40, Col: 32>
+<ARITHMETIC_OP, "+", Line: 40, Col: 34>
+<INTEGER_LITERAL, "1", Line: 40, Col: 36>
+<KEYWORD, "declare", Line: 41, Col: 9>
+<IDENTIFIER, "Square", Line: 41, Col: 17>
+<ASSIGNMENT_OP, "=", Line: 41, Col: 24>
+<IDENTIFIER, "Index", Line: 41, Col: 26>
+<ARITHMETIC_OP, "**", Line: 41, Col: 32>
+<INTEGER_LITERAL, "2", Line: 41, Col: 35>
+<KEYWORD, "condition", Line: 42, Col: 9>
+<IDENTIFIER, "Temp", Line: 42, Col: 19>
+<ARITHMETIC_OP, "%", Line: 42, Col: 24>
+<INTEGER_LITERAL, "2", Line: 42, Col: 26>
+<RELATIONAL_OP, "==", Line: 42, Col: 28>
+<INTEGER_LITERAL, "0", Line: 42, Col: 31>
+<KEYWORD, "output", Line: 43, Col: 13>
+<IDENTIFIER, "Temp", Line: 43, Col: 20>
+<KEYWORD, "else", Line: 44, Col: 9>
+<KEYWORD, "condition", Line: 45, Col: 13>
+<IDENTIFIER, "Square", Line: 45, Col: 23>
+<RELATIONAL_OP, ">", Line: 45, Col: 30>
+<INTEGER_LITERAL, "50", Line: 45, Col: 32>
+<KEYWORD, "break", Line: 46, Col: 17>
+<KEYWORD, "finish", Line: 47, Col: 13>
+<KEYWORD, "finish", Line: 48, Col: 9>
+<IDENTIFIER, "Index", Line: 49, Col: 9>
+<INCREMENT_OP, "++", Line: 49, Col: 14>
+<KEYWORD, "finish", Line: 50, Col: 5>
+<KEYWORD, "function", Line: 53, Col: 5>
+<IDENTIFIER, "Calculate", Line: 53, Col: 14>
+<PUNCTUATOR, "(", Line: 53, Col: 23>
+<IDENTIFIER, "X", Line: 53, Col: 24>
+<PUNCTUATOR, ",", Line: 53, Col: 25>
+<IDENTIFIER, "Y", Line: 53, Col: 27>
+<PUNCTUATOR, ")", Line: 53, Col: 28>
+<PUNCTUATOR, ":", Line: 53, Col: 29>
+<KEYWORD, "declare", Line: 54, Col: 9>
+<IDENTIFIER, "Sum", Line: 54, Col: 17>
+<ASSIGNMENT_OP, "=", Line: 54, Col: 21>
+<IDENTIFIER, "X", Line: 54, Col: 23>
+<ARITHMETIC_OP, "+", Line: 54, Col: 25>
+<IDENTIFIER, "Y", Line: 54, Col: 27>
+<KEYWORD, "declare", Line: 55, Col: 9>
+<IDENTIFIER, "Diff", Line: 55, Col: 17>
+<ASSIGNMENT_OP, "=", Line: 55, Col: 22>
+<IDENTIFIER, "X", Line: 55, Col: 24>
+<ARITHMETIC_OP, "-", Line: 55, Col: 26>
+<IDENTIFIER, "Y", Line: 55, Col: 28>
+<KEYWORD, "declare", Line: 56, Col: 9>
+<IDENTIFIER, "Product", Line: 56, Col: 17>
+<ASSIGNMENT_OP, "=", Line: 56, Col: 25>
+<IDENTIFIER, "X", Line: 56, Col: 27>
+<ARITHMETIC_OP, "*", Line: 56, Col: 29>
+<IDENTIFIER, "Y", Line: 56, Col: 31>
+<KEYWORD, "return", Line: 57, Col: 9>
+<IDENTIFIER, "Sum", Line: 57, Col: 16>
+<ARITHMETIC_OP, "+", Line: 57, Col: 20>
+<IDENTIFIER, "Diff", Line: 57, Col: 22>
+<ARITHMETIC_OP, "*", Line: 57, Col: 27>
+<IDENTIFIER, "Product", Line: 57, Col: 29>
+<KEYWORD, "finish", Line: 58, Col: 5>
+<KEYWORD, "declare", Line: 61, Col: 5>
+<IDENTIFIER, "Data", Line: 61, Col: 13>
+<PUNCTUATOR, "[", Line: 61, Col: 17>
+<INTEGER_LITERAL, "100", Line: 61, Col: 18>
+<PUNCTUATOR, "]", Line: 61, Col: 21>
+<KEYWORD, "declare", Line: 62, Col: 5>
+<IDENTIFIER, "Matrix", Line: 62, Col: 13>
+<PUNCTUATOR, "[", Line: 62, Col: 19>
+<INTEGER_LITERAL, "10", Line: 62, Col: 20>
+<PUNCTUATOR, "]", Line: 62, Col: 22>
+<PUNCTUATOR, "[", Line: 62, Col: 23>
+<INTEGER_LITERAL, "10", Line: 62, Col: 24>
+<PUNCTUATOR, "]", Line: 62, Col: 26>
+<KEYWORD, "declare", Line: 63, Col: 5>
+<IDENTIFIER, "Val", Line: 63, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 63, Col: 17>
+<IDENTIFIER, "Data", Line: 63, Col: 19>
+<PUNCTUATOR, "[", Line: 63, Col: 23>
+<IDENTIFIER, "A", Line: 63, Col: 24>
+<ARITHMETIC_OP, "+", Line: 63, Col: 26>
+<IDENTIFIER, "B", Line: 63, Col: 28>
+<PUNCTUATOR, "]", Line: 63, Col: 29>
+<KEYWORD, "declare", Line: 64, Col: 5>
+<IDENTIFIER, "Cell", Line: 64, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 64, Col: 18>
+<IDENTIFIER, "Matrix", Line: 64, Col: 20>
+<PUNCTUATOR, "[", Line: 64, Col: 26>
+<IDENTIFIER, "A", Line: 64, Col: 27>
+<ARITHMETIC_OP, "*", Line: 64, Col: 29>
+<INTEGER_LITERAL, "2", Line: 64, Col: 31>
+<PUNCTUATOR, "]", Line: 64, Col: 32>
+<PUNCTUATOR, "[", Line: 64, Col: 33>
+<IDENTIFIER, "B", Line: 64, Col: 34>
+<ARITHMETIC_OP, "/", Line: 64, Col: 36>
+<INTEGER_LITERAL, "4", Line: 64, Col: 38>
+<PUNCTUATOR, "]", Line: 64, Col: 39>
+<KEYWORD, "output", Line: 67, Col: 5>
+<IDENTIFIER, "A", Line: 67, Col: 12>
+<ARITHMETIC_OP, "+", Line: 67, Col: 14>
+<IDENTIFIER, "B", Line: 67, Col: 16>
+<ARITHMETIC_OP, "*", Line: 67, Col: 18>
+<IDENTIFIER, "C", Line: 67, Col: 20>
+<ARITHMETIC_OP, "-", Line: 67, Col: 22>
+<INTEGER_LITERAL, "1", Line: 67, Col: 24>
+<KEYWORD, "output", Line: 68, Col: 5>
+<PUNCTUATOR, "(", Line: 68, Col: 12>
+<IDENTIFIER, "A", Line: 68, Col: 13>
+<ARITHMETIC_OP, "+", Line: 68, Col: 15>
+<IDENTIFIER, "B", Line: 68, Col: 17>
+<PUNCTUATOR, ")", Line: 68, Col: 18>
+<ARITHMETIC_OP, "*", Line: 68, Col: 20>
+<PUNCTUATOR, "(", Line: 68, Col: 22>
+<IDENTIFIER, "C", Line: 68, Col: 23>
+<ARITHMETIC_OP, "-", Line: 68, Col: 25>
+<IDENTIFIER, "A", Line: 68, Col: 27>
+<PUNCTUATOR, ")", Line: 68, Col: 28>
+<KEYWORD, "output", Line: 69, Col: 5>
+<PUNCTUATOR, "{", Line: 69, Col: 12>
+<IDENTIFIER, "A", Line: 69, Col: 13>
+<PUNCTUATOR, ";", Line: 69, Col: 14>
+<IDENTIFIER, "B", Line: 69, Col: 16>
+<PUNCTUATOR, ";", Line: 69, Col: 17>
+<IDENTIFIER, "C", Line: 69, Col: 19>
+<PUNCTUATOR, "}", Line: 69, Col: 20>
+<KEYWORD, "finish", Line: 70, Col: 1>
+============================
+
+
+========== STATISTICS ==========
+Total Tokens: 265
+Lines Processed: 71
+Comments Removed: 10
+Errors Detected: 0
+
+Token Count by Type:
+----------------------------------------
+ARITHMETIC_OP            : 29
+ASSIGNMENT_OP            : 19
+BOOLEAN_LITERAL          : 3
+DECREMENT_OP             : 1
+IDENTIFIER               : 73
+INCREMENT_OP             : 2
+INTEGER_LITERAL          : 39
+KEYWORD                  : 46
+LOGICAL_OP               : 10
+PUNCTUATOR               : 28
+RELATIONAL_OP            : 12
+STRING_LITERAL           : 3
+========================================
+
+========== SYMBOL TABLE ==========
+Name                 Type            First Line First Col  Frequency
+================================================================================
+Result               IDENTIFIER      Line: 6    Col: 13   Frequency: 10
+Nested               IDENTIFIER      Line: 7    Col: 13   Frequency: 1
+Power expr           IDENTIFIER      Line: 8    Col: 13   Frequency: 1
+Mixed                IDENTIFIER      Line: 9    Col: 13   Frequency: 1
+A                    IDENTIFIER      Line: 27   Col: 13   Frequency: 12
+B                    IDENTIFIER      Line: 28   Col: 13   Frequency: 10
+C                    IDENTIFIER      Line: 29   Col: 13   Frequency: 7
+Index                IDENTIFIER      Line: 38   Col: 13   Frequency: 5
+Temp                 IDENTIFIER      Line: 40   Col: 17   Frequency: 3
+Square               IDENTIFIER      Line: 41   Col: 17   Frequency: 2
+Calculate            IDENTIFIER      Line: 53   Col: 14   Frequency: 1
+X                    IDENTIFIER      Line: 53   Col: 24   Frequency: 4
+Y                    IDENTIFIER      Line: 53   Col: 27   Frequency: 4
+Sum                  IDENTIFIER      Line: 54   Col: 17   Frequency: 2
+Diff                 IDENTIFIER      Line: 55   Col: 17   Frequency: 2
+Product              IDENTIFIER      Line: 56   Col: 17   Frequency: 2
+Data                 IDENTIFIER      Line: 61   Col: 13   Frequency: 2
+Matrix               IDENTIFIER      Line: 62   Col: 13   Frequency: 2
+Val                  IDENTIFIER      Line: 63   Col: 13   Frequency: 1
+Cell                 IDENTIFIER      Line: 64   Col: 13   Frequency: 1
+================================================================================
+Total unique identifiers: 20
+
+========== TEST COMPLETED ==========
+========== JFLEX INPUT FROM: ../tests/test3.lang ==========
+## test3.lang - String and Character Literals with Escape Sequences
+
+start
+    ## Basic strings
+    declare Empty = ""
+    declare Hello = "Hello World"
+    declare Digits = "12345"
+
+    ## String escape sequences
+    declare Newline str = "Line1\nLine2"
+    declare Tab str = "Col1\tCol2"
+    declare Return str = "Before\rAfter"
+    declare Backslash str = "Path\\to\\file"
+    declare Quote str = "She said \"hello\""
+    declare All escapes = "New\nTab\tReturn\rSlash\\Quote\""
+
+    ## Multiple escapes in one string
+    declare Multi = "Row1\tCol1\tCol2\nRow2\tCol3\tCol4"
+    declare Path = "C:\\Users\\Documents\\file.txt"
+    declare Dialog = "He said \"Hi\" and she said \"Bye\""
+
+    ## Character literals
+    declare Ch a = 'A'
+    declare Ch z = 'z'
+    declare Ch zero = '0'
+    declare Ch space = ' '
+
+    ## Character escape sequences
+    declare Ch newline = '\n'
+    declare Ch tab = '\t'
+    declare Ch return = '\r'
+    declare Ch backslash = '\\'
+    declare Ch quote = '\''
+
+    ## Strings used in expressions
+    condition Hello == "Hello World"
+        output "Match found\n"
+    finish
+
+    output "Result:\t"
+    output Hello
+    output "\nDone\n"
+
+    ## String with only escapes
+    declare Only escapes = "\n\t\r\\\""
+finish
+
+======================================================
+
+
+========== TOKENS ==========
+<KEYWORD, "start", Line: 3, Col: 1>
+<KEYWORD, "declare", Line: 5, Col: 5>
+<IDENTIFIER, "Empty", Line: 5, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 5, Col: 19>
+<STRING_LITERAL, """", Line: 5, Col: 21>
+<KEYWORD, "declare", Line: 6, Col: 5>
+<IDENTIFIER, "Hello", Line: 6, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 6, Col: 19>
+<STRING_LITERAL, ""Hello World"", Line: 6, Col: 21>
+<KEYWORD, "declare", Line: 7, Col: 5>
+<IDENTIFIER, "Digits", Line: 7, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 7, Col: 20>
+<STRING_LITERAL, ""12345"", Line: 7, Col: 22>
+<KEYWORD, "declare", Line: 10, Col: 5>
+<IDENTIFIER, "Newline str", Line: 10, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 10, Col: 25>
+<STRING_LITERAL, ""Line1\nLine2"", Line: 10, Col: 27>
+<KEYWORD, "declare", Line: 11, Col: 5>
+<IDENTIFIER, "Tab str", Line: 11, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 11, Col: 21>
+<STRING_LITERAL, ""Col1\tCol2"", Line: 11, Col: 23>
+<KEYWORD, "declare", Line: 12, Col: 5>
+<IDENTIFIER, "Return str", Line: 12, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 12, Col: 24>
+<STRING_LITERAL, ""Before\rAfter"", Line: 12, Col: 26>
+<KEYWORD, "declare", Line: 13, Col: 5>
+<IDENTIFIER, "Backslash str", Line: 13, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 13, Col: 27>
+<STRING_LITERAL, ""Path\\to\\file"", Line: 13, Col: 29>
+<KEYWORD, "declare", Line: 14, Col: 5>
+<IDENTIFIER, "Quote str", Line: 14, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 14, Col: 23>
+<STRING_LITERAL, ""She said \"hello\""", Line: 14, Col: 25>
+<KEYWORD, "declare", Line: 15, Col: 5>
+<IDENTIFIER, "All escapes", Line: 15, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 15, Col: 25>
+<STRING_LITERAL, ""New\nTab\tReturn\rSlash\\Quote\""", Line: 15, Col: 27>
+<KEYWORD, "declare", Line: 18, Col: 5>
+<IDENTIFIER, "Multi", Line: 18, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 18, Col: 19>
+<STRING_LITERAL, ""Row1\tCol1\tCol2\nRow2\tCol3\tCol4"", Line: 18, Col: 21>
+<KEYWORD, "declare", Line: 19, Col: 5>
+<IDENTIFIER, "Path", Line: 19, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 19, Col: 18>
+<STRING_LITERAL, ""C:\\Users\\Documents\\file.txt"", Line: 19, Col: 20>
+<KEYWORD, "declare", Line: 20, Col: 5>
+<IDENTIFIER, "Dialog", Line: 20, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 20, Col: 20>
+<STRING_LITERAL, ""He said \"Hi\" and she said \"Bye\""", Line: 20, Col: 22>
+<KEYWORD, "declare", Line: 23, Col: 5>
+<IDENTIFIER, "Ch a", Line: 23, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 23, Col: 18>
+<CHAR_LITERAL, "'A'", Line: 23, Col: 20>
+<KEYWORD, "declare", Line: 24, Col: 5>
+<IDENTIFIER, "Ch z", Line: 24, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 24, Col: 18>
+<CHAR_LITERAL, "'z'", Line: 24, Col: 20>
+<KEYWORD, "declare", Line: 25, Col: 5>
+<IDENTIFIER, "Ch zero", Line: 25, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 25, Col: 21>
+<CHAR_LITERAL, "'0'", Line: 25, Col: 23>
+<KEYWORD, "declare", Line: 26, Col: 5>
+<IDENTIFIER, "Ch space", Line: 26, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 26, Col: 22>
+<CHAR_LITERAL, "' '", Line: 26, Col: 24>
+<KEYWORD, "declare", Line: 29, Col: 5>
+<IDENTIFIER, "Ch newline", Line: 29, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 29, Col: 24>
+<CHAR_LITERAL, "'\n'", Line: 29, Col: 26>
+<KEYWORD, "declare", Line: 30, Col: 5>
+<IDENTIFIER, "Ch tab", Line: 30, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 30, Col: 20>
+<CHAR_LITERAL, "'\t'", Line: 30, Col: 22>
+<KEYWORD, "declare", Line: 31, Col: 5>
+<IDENTIFIER, "Ch return", Line: 31, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 31, Col: 23>
+<CHAR_LITERAL, "'\r'", Line: 31, Col: 25>
+<KEYWORD, "declare", Line: 32, Col: 5>
+<IDENTIFIER, "Ch backslash", Line: 32, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 32, Col: 26>
+<CHAR_LITERAL, "'\\'", Line: 32, Col: 28>
+<KEYWORD, "declare", Line: 33, Col: 5>
+<IDENTIFIER, "Ch quote", Line: 33, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 33, Col: 22>
+<CHAR_LITERAL, "'\''", Line: 33, Col: 24>
+<KEYWORD, "condition", Line: 36, Col: 5>
+<IDENTIFIER, "Hello", Line: 36, Col: 15>
+<RELATIONAL_OP, "==", Line: 36, Col: 21>
+<STRING_LITERAL, ""Hello World"", Line: 36, Col: 24>
+<KEYWORD, "output", Line: 37, Col: 9>
+<STRING_LITERAL, ""Match found\n"", Line: 37, Col: 16>
+<KEYWORD, "finish", Line: 38, Col: 5>
+<KEYWORD, "output", Line: 40, Col: 5>
+<STRING_LITERAL, ""Result:\t"", Line: 40, Col: 12>
+<KEYWORD, "output", Line: 41, Col: 5>
+<IDENTIFIER, "Hello", Line: 41, Col: 12>
+<KEYWORD, "output", Line: 42, Col: 5>
+<STRING_LITERAL, ""\nDone\n"", Line: 42, Col: 12>
+<KEYWORD, "declare", Line: 45, Col: 5>
+<IDENTIFIER, "Only escapes", Line: 45, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 45, Col: 26>
+<STRING_LITERAL, ""\n\t\r\\\""", Line: 45, Col: 28>
+<KEYWORD, "finish", Line: 46, Col: 1>
+============================
+
+
+========== STATISTICS ==========
+Total Tokens: 103
+Lines Processed: 47
+Comments Removed: 8
+Errors Detected: 0
+
+Token Count by Type:
+----------------------------------------
+ASSIGNMENT_OP            : 22
+CHAR_LITERAL             : 9
+IDENTIFIER               : 24
+KEYWORD                  : 30
+RELATIONAL_OP            : 1
+STRING_LITERAL           : 17
+========================================
+
+========== SYMBOL TABLE ==========
+Name                 Type            First Line First Col  Frequency
+================================================================================
+Empty                IDENTIFIER      Line: 5    Col: 13   Frequency: 1
+Hello                IDENTIFIER      Line: 6    Col: 13   Frequency: 3
+Digits               IDENTIFIER      Line: 7    Col: 13   Frequency: 1
+Newline str          IDENTIFIER      Line: 10   Col: 13   Frequency: 1
+Tab str              IDENTIFIER      Line: 11   Col: 13   Frequency: 1
+Return str           IDENTIFIER      Line: 12   Col: 13   Frequency: 1
+Backslash str        IDENTIFIER      Line: 13   Col: 13   Frequency: 1
+Quote str            IDENTIFIER      Line: 14   Col: 13   Frequency: 1
+All escapes          IDENTIFIER      Line: 15   Col: 13   Frequency: 1
+Multi                IDENTIFIER      Line: 18   Col: 13   Frequency: 1
+Path                 IDENTIFIER      Line: 19   Col: 13   Frequency: 1
+Dialog               IDENTIFIER      Line: 20   Col: 13   Frequency: 1
+Ch a                 IDENTIFIER      Line: 23   Col: 13   Frequency: 1
+Ch z                 IDENTIFIER      Line: 24   Col: 13   Frequency: 1
+Ch zero              IDENTIFIER      Line: 25   Col: 13   Frequency: 1
+Ch space             IDENTIFIER      Line: 26   Col: 13   Frequency: 1
+Ch newline           IDENTIFIER      Line: 29   Col: 13   Frequency: 1
+Ch tab               IDENTIFIER      Line: 30   Col: 13   Frequency: 1
+Ch return            IDENTIFIER      Line: 31   Col: 13   Frequency: 1
+Ch backslash         IDENTIFIER      Line: 32   Col: 13   Frequency: 1
+Ch quote             IDENTIFIER      Line: 33   Col: 13   Frequency: 1
+Only escapes         IDENTIFIER      Line: 45   Col: 13   Frequency: 1
+================================================================================
+Total unique identifiers: 22
+
+========== TEST COMPLETED ==========
+========== JFLEX INPUT FROM: ../tests/test4.lang ==========
+## test4.lang - Lexical Errors
+## Each section triggers a specific scanner error
+
+## Valid code before errors
+start
+declare Count = 5
+
+## Error: Invalid characters
+declare Val = 10 @ 5
+declare X = 3 $ 2
+declare Y = 7 ~ 1
+
+## Error: Unterminated string literal
+declare Bad str = "This string never ends
+
+## Error: Unterminated character literal
+declare Bad ch = '
+
+## Error: Multi-character in char literal
+declare Wrong ch = 'ab'
+
+## Error: Identifier starting with lowercase
+declare invalid_name = 10
+
+## Error: Identifier exceeding 31 characters
+declare This is a very very very very long identifier name = 100
+
+## Error: Unterminated multi-line comment
+#* This comment has no closing
+
+## More valid code after errors
+declare Valid = 42
+output Valid
+finish
+
+======================================================
+
+Error: [INVALID_CHARACTER] Line: 9, Col: 18, Lexeme: "@" - Character '@' is not recognized by the scanner
+Error: [INVALID_CHARACTER] Line: 10, Col: 15, Lexeme: "$" - Character '$' is not recognized by the scanner
+Error: [INVALID_CHARACTER] Line: 11, Col: 15, Lexeme: "~" - Character '~' is not recognized by the scanner
+Error: [MALFORMED_STRING] Line: 14, Col: 19, Lexeme: ""This string never ends" - String literal is not properly terminated with closing quote
+Error: [MALFORMED_CHAR] Line: 17, Col: 18, Lexeme: "'" - Character literal is not properly terminated with closing quote
+Error: [MALFORMED_CHAR] Line: 20, Col: 20, Lexeme: "'a" - Character literal is not properly terminated with closing quote
+Error: [INVALID_IDENTIFIER] Line: 20, Col: 22, Lexeme: "b" - Identifier 'b' must start with an uppercase letter
+Error: [MALFORMED_CHAR] Line: 20, Col: 23, Lexeme: "'" - Character literal is not properly terminated with closing quote
+Error: [INVALID_IDENTIFIER] Line: 23, Col: 9, Lexeme: "invalid_name" - Identifier 'invalid_name' must start with an uppercase letter
+Warning: Identifier too long (max 31 chars) at Line: 26, Col: 9 - truncating
+Error: [UNCLOSED_COMMENT] Line: 29, Col: 1, Lexeme: "#*..." - Multi-line comment started but never closed with *#
+
+========== TOKENS ==========
+<KEYWORD, "start", Line: 5, Col: 1>
+<KEYWORD, "declare", Line: 6, Col: 1>
+<IDENTIFIER, "Count", Line: 6, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 6, Col: 15>
+<INTEGER_LITERAL, "5", Line: 6, Col: 17>
+<KEYWORD, "declare", Line: 9, Col: 1>
+<IDENTIFIER, "Val", Line: 9, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 9, Col: 13>
+<INTEGER_LITERAL, "10", Line: 9, Col: 15>
+<INTEGER_LITERAL, "5", Line: 9, Col: 20>
+<KEYWORD, "declare", Line: 10, Col: 1>
+<IDENTIFIER, "X", Line: 10, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 10, Col: 11>
+<INTEGER_LITERAL, "3", Line: 10, Col: 13>
+<INTEGER_LITERAL, "2", Line: 10, Col: 17>
+<KEYWORD, "declare", Line: 11, Col: 1>
+<IDENTIFIER, "Y", Line: 11, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 11, Col: 11>
+<INTEGER_LITERAL, "7", Line: 11, Col: 13>
+<INTEGER_LITERAL, "1", Line: 11, Col: 17>
+<KEYWORD, "declare", Line: 14, Col: 1>
+<IDENTIFIER, "Bad str", Line: 14, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 14, Col: 17>
+<KEYWORD, "declare", Line: 17, Col: 1>
+<IDENTIFIER, "Bad ch", Line: 17, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 17, Col: 16>
+<KEYWORD, "declare", Line: 20, Col: 1>
+<IDENTIFIER, "Wrong ch", Line: 20, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 20, Col: 18>
+<KEYWORD, "declare", Line: 23, Col: 1>
+<ASSIGNMENT_OP, "=", Line: 23, Col: 22>
+<INTEGER_LITERAL, "10", Line: 23, Col: 24>
+<KEYWORD, "declare", Line: 26, Col: 1>
+<IDENTIFIER, "This is a very very very very l", Line: 26, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 26, Col: 60>
+<INTEGER_LITERAL, "100", Line: 26, Col: 62>
+============================
+
+
+========== STATISTICS ==========
+Total Tokens: 36
+Lines Processed: 35
+Comments Removed: 11
+Errors Detected: 10
+
+Token Count by Type:
+----------------------------------------
+ASSIGNMENT_OP            : 9
+IDENTIFIER               : 8
+INTEGER_LITERAL          : 9
+KEYWORD                  : 10
+========================================
+
+========== ERROR SUMMARY ==========
+Total Errors: 10
+===================================
+
+Errors by Type:
+  INVALID_CHARACTER        : 3
+  MALFORMED_CHAR           : 3
+  INVALID_IDENTIFIER       : 2
+  UNCLOSED_COMMENT         : 1
+  MALFORMED_STRING         : 1
+========================================
+
+========== SYMBOL TABLE ==========
+Name                 Type            First Line First Col  Frequency
+================================================================================
+Count                IDENTIFIER      Line: 6    Col: 9    Frequency: 1
+Val                  IDENTIFIER      Line: 9    Col: 9    Frequency: 1
+X                    IDENTIFIER      Line: 10   Col: 9    Frequency: 1
+Y                    IDENTIFIER      Line: 11   Col: 9    Frequency: 1
+Bad str              IDENTIFIER      Line: 14   Col: 9    Frequency: 1
+Bad ch               IDENTIFIER      Line: 17   Col: 9    Frequency: 1
+Wrong ch             IDENTIFIER      Line: 20   Col: 9    Frequency: 1
+This is a very very very very l IDENTIFIER      Line: 26   Col: 9    Frequency: 1
+================================================================================
+Total unique identifiers: 8
+
+========== TEST COMPLETED ==========
+========== JFLEX INPUT FROM: ../tests/test5.lang ==========
+## test5.lang - Comments
+## Tests single-line and multi-line comment handling
+
+## Single-line comments
+start
+    ## This is a basic single-line comment
+    declare Count = 0  ## Inline comment after code
+
+    ## Comment with symbols: @#$%^&*!
+    ## Comment with numbers: 12345 3.14
+    ## Comment with keywords: start finish loop declare
+
+    ##
+    ## Empty comment above
+
+    #* Simple multi-line comment *#
+
+    #* Multi-line comment
+       spanning two lines *#
+
+    #* Multi-line comment
+       spanning
+       multiple
+       lines *#
+
+    #* Comment with code inside:
+       declare X = 10
+       loop condition X > 0
+           X--
+       finish
+    *#
+
+    #* Nested symbols in comment: { } [ ] ( ) ; : , *#
+
+    declare Result = 42  #* inline multi-line comment *#  + 8
+
+    ## Code between comments
+    output Count
+    ## Another comment
+    output Result
+    ## Final comment
+finish
+## Trailing comment after program
+
+======================================================
+
+
+========== TOKENS ==========
+<KEYWORD, "start", Line: 5, Col: 1>
+<KEYWORD, "declare", Line: 7, Col: 5>
+<IDENTIFIER, "Count", Line: 7, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 7, Col: 19>
+<INTEGER_LITERAL, "0", Line: 7, Col: 21>
+<KEYWORD, "declare", Line: 35, Col: 5>
+<IDENTIFIER, "Result", Line: 35, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 35, Col: 20>
+<INTEGER_LITERAL, "42", Line: 35, Col: 22>
+<ARITHMETIC_OP, "+", Line: 35, Col: 59>
+<INTEGER_LITERAL, "8", Line: 35, Col: 61>
+<KEYWORD, "output", Line: 38, Col: 5>
+<IDENTIFIER, "Count", Line: 38, Col: 12>
+<KEYWORD, "output", Line: 40, Col: 5>
+<IDENTIFIER, "Result", Line: 40, Col: 12>
+<KEYWORD, "finish", Line: 42, Col: 1>
+============================
+
+
+========== STATISTICS ==========
+Total Tokens: 16
+Lines Processed: 44
+Comments Removed: 20
+Errors Detected: 0
+
+Token Count by Type:
+----------------------------------------
+ARITHMETIC_OP            : 1
+ASSIGNMENT_OP            : 2
+IDENTIFIER               : 4
+INTEGER_LITERAL          : 3
+KEYWORD                  : 6
+========================================
+
+========== SYMBOL TABLE ==========
+Name                 Type            First Line First Col  Frequency
+================================================================================
+Count                IDENTIFIER      Line: 7    Col: 13   Frequency: 2
+Result               IDENTIFIER      Line: 35   Col: 13   Frequency: 2
+================================================================================
+Total unique identifiers: 2
+
+========== TEST COMPLETED ==========
+
+========================================
+    JFLEX SCANNER TEST COMPLETED
+========================================
